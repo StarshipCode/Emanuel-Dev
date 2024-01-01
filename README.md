@@ -1,2 +1,3 @@
 # Emanuel-Dev
-My own portafolio
+My personal portafolio.
+Work in progress!
