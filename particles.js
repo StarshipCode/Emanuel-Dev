@@ -6,7 +6,7 @@ const ctx = canvas.getContext("2d", { alpha: true })
 const SPEED = 1 //Speed of particles
 const COLOR = "#fcfcfc" //Color for particles
 const BOUND_COLOR = "#fcfcfc" //Color for bounds
-const RADIUS_BOUND = 100 //Radio distance for bounding
+const RADIUS_BOUND = 170 //Radio distance for bounding
 const PORTION_WINDOW = 3 / 5
 const PARTICLE_RADIUS = 4
 
@@ -20,9 +20,9 @@ let mouseY = 0
 const particles = []
 
 //Filling particles
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 40; i++) {
     //Generating particle in random position with random motion angle
-    particles.push({ x: Math.floor(Math.random() * (canvas.width - PARTICLE_RADIUS * 2)) + PARTICLE_RADIUS, y: Math.floor(Math.random() * (canvas.height - PARTICLE_RADIUS * 2)) + PARTICLE_RADIUS, angle: Math.floor(Math.random() * 360) * Math.PI * 2 / 360 })
+    particles.push({ x: Math.floor(Math.random() * canvas.width), y: Math.floor(Math.random() * canvas.height), angle: Math.floor(Math.random() * 360) * Math.PI * 2 / 360 })
 }
 
 function adjustCanvas() {
@@ -36,7 +36,7 @@ function adjustCanvas() {
         for (let i = 0; i < particles.length; i++) {
             let p = particles[i]
             if (p.x > canvas.width || p.x < 0 || p.y > canvas.height || p.y < 0)
-                p = { x: Math.floor(Math.random() * (canvas.width - PARTICLE_RADIUS)), y: Math.floor(Math.random() * (canvas.height - PARTICLE_RADIUS)), angle: Math.floor(Math.random() * 360) * Math.PI * 2 / 360 }
+                p = { x: Math.floor(Math.random() * canvas.width), y: Math.floor(Math.random() * canvas.height), angle: Math.floor(Math.random() * 360) * Math.PI * 2 / 360 }
             particles[i] = { ...p }
         }
         particles.map(p => {
@@ -68,7 +68,7 @@ function draw() {
         p.x += Math.cos(p.angle) * SPEED
         p.y += Math.sin(p.angle) * SPEED
         //Particle avoidance
-        if (Math.sqrt(Math.pow(mouseX - p.x, 2) + Math.pow(mouseY - p.y, 2)) < 100 && !(p.x >= canvas.width - PARTICLE_RADIUS || p.x <= PARTICLE_RADIUS || p.y >= canvas.height - PARTICLE_RADIUS || p.y <= PARTICLE_RADIUS)) {
+        if (Math.sqrt(Math.pow(mouseX - p.x, 2) + Math.pow(mouseY - p.y, 2)) < 170 && !(p.x >= canvas.width - PARTICLE_RADIUS || p.x <= PARTICLE_RADIUS || p.y >= canvas.height - PARTICLE_RADIUS || p.y <= PARTICLE_RADIUS)) {
             if (mouseX < p.x)
                 p.x += 1
             if (mouseX > p.x)
