@@ -70,6 +70,8 @@
 }
 
 #landing-canvas {
+    width: 60%;
+    height: 100vh;
     position: absolute;
     right: 0px;
     top: 0px;
