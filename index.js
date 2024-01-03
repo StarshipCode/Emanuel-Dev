@@ -172,6 +172,6 @@ starButton.addEventListener("click", e => {
             delay: 0
         })
     setTimeout(() => {
-        location.assign("file:///C:/Users/Emanuel/Desktop/Portafolio/projects.html")
+        location.assign("https://starshipcode.github.io/Emanuel-Dev/projects.html")
     }, 1000)
 })
