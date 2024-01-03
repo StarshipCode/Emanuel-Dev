@@ -50,6 +50,6 @@ starButton.addEventListener("click", e => {
             delay: 0
         })
     setTimeout(() => {
-        location.assign("projects.html")
+        location.assign("Emanuel-Dev/projects.html")
     }, 1000)
 })
